@@ -99,6 +99,7 @@ int main() {
     printf("\n");
 
     // User selects type of operation
+    do{
     printf("Select operation type:\n1. Bitwise Operations\n2. Arithmetic Operations\n");
     scanf("%d", &choice);
 
@@ -178,10 +179,13 @@ int main() {
                     printf("Invalid arithmetic operation.\n");
             }
             break;
+        case 3:
+            printf("Exiting");
+            break;
         default:
             printf("Invalid operation type.\n");
     }
-
+    }while(choice !=3);
     return 0;
 }
 
