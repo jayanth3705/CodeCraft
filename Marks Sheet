@@ -15,7 +15,7 @@ for i in range(num_students):
     for subject in subjects:
         while True:
             try:
-                mark = int(input(f"Enter marks for {subject} (0-100): "))
+                mark = int(input(f"Enter marks for {subject} : "))
                 if mark < 0 or mark > 100:
                     raise ValueError("Marks should be between 0 and 100.")
                 marks.append(mark)
