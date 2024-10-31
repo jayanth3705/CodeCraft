@@ -1,0 +1,39 @@
+from tabulate import tabulate
+
+# Input number of students
+num_students = int(input("Enter the number of students: "))
+students_data = []
+
+# Loop for each student
+for i in range(num_students):
+    print(f"\nEnter details for Student {i + 1}")
+    student_name = input("Enter the student's name: ")
+    subjects = ['TELUGU', 'ENGLISH', 'MATHS', 'SCIENCE', 'SOCIAL']
+    marks = []
+
+    # Input marks for each subject 
+    for subject in subjects:
+        while True:
+            try:
+                mark = int(input(f"Enter marks for {subject} (0-100): "))
+                if mark < 0 or mark > 100:
+                    raise ValueError("Marks should be between 0 and 100.")
+                marks.append(mark)
+                break  # Exit loop 
+            except ValueError as e:
+                print(f"Invalid input: {e}. Please enter a valid mark.")
+
+    # Calculate total and percentage
+    total_marks = sum(marks)
+    percentage = (total_marks / (len(subjects) * 100)) * 100  
+
+    # Add student's data to the list
+    students_data.append([student_name, *marks, total_marks, f"{percentage:.2f}%"])
+
+# Sort the data by student name (alphabetically)
+students_data.sort(key=lambda x: x[0])
+
+# Display the table
+headers = ["Name", *subjects, "Total", "Percentage"]
+print("\nStudent Marks Table (Sorted by Name):")
+print(tabulate(students_data, headers=headers, tablefmt="grid"))
