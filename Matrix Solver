@@ -49,7 +49,7 @@ while True:
     print("3. Multiplication")
     print("4. Transpose of Matrix A")
     print("5. Transpose of Matrix B")
-    print("6. Exit")
+    print("6. Surprise")
 
     choice = input("Enter choice (1-6): ")
 
