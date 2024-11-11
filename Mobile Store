@@ -1,0 +1,107 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.*;
+public class MobileStore {
+    public static void main(String[] args) {
+        // Welcome message 
+        System.out.println("Welcome to SATURN STORE, your one-stop destination for a vast selection of top-quality mobile brands at unbeatable prices.\n Dive into our catalog and discover options that suit your budget!");
+        
+        // Create a HashMap 
+        HashMap mobileBrands = new HashMap();
+        
+        // Adding brands and models with prices
+        HashMap samsungModels = new HashMap();
+        samsungModels.put("Galaxy S24 Ultra", 110000);
+        samsungModels.put("Galaxy A55", 39900);
+        samsungModels.put("Galaxy M55", 19999);
+        mobileBrands.put(1, samsungModels);
+        
+        HashMap appleModels = new HashMap();
+        appleModels.put("iPhone 16", 79900);
+        appleModels.put("iPhone 16 Pro", 99900);
+        appleModels.put("iPhone 16 Pro Max", 119900);
+        appleModels.put("iPhone 16 Plus", 89900);
+        mobileBrands.put(2, appleModels);
+        
+        HashMap xiaomiModels = new HashMap();
+        xiaomiModels.put("Xiaomi 14 CIVI", 45749);
+        xiaomiModels.put("Redmi Note 13 Pro", 29999);
+        xiaomiModels.put("Xiaomi 14 Ultra", 99999);
+        mobileBrands.put(3, xiaomiModels);
+        
+        HashMap motorolaModels = new HashMap();
+        motorolaModels.put("Moto Edge 50 Ultra", 54499);
+        motorolaModels.put("Moto Edge 50 Pro", 29999);
+        motorolaModels.put("Moto G85", 19999);
+        mobileBrands.put(4, motorolaModels);
+        
+        HashMap vivoModels = new HashMap();
+        vivoModels.put("Vivo X100 Ultra", 98999);
+        vivoModels.put("Vivo X100", 63999);
+        vivoModels.put("Vivo T3 Pro", 23999);
+        mobileBrands.put(5, vivoModels);
+        
+        HashMap iqooModels = new HashMap();
+        iqooModels.put("IQOO 13", 55999);
+        iqooModels.put("IQOO Z9s Pro", 22999);
+        iqooModels.put("IQOO Z9s", 17999);
+        mobileBrands.put(6, iqooModels);
+        
+        HashMap googleModels = new HashMap();
+        googleModels.put("Pixel 8", 42999);
+        googleModels.put("Pixel 8 Pro", 89999);
+        googleModels.put("Pixel 8a", 42999);
+        mobileBrands.put(7, googleModels);
+        
+        HashMap oneplusModels = new HashMap();
+        oneplusModels.put("OnePlus 12", 65999);
+        oneplusModels.put("OnePlus Nord 4", 23999);
+        oneplusModels.put("OnePlus 12R", 45999);
+        mobileBrands.put(8, oneplusModels);
+        
+        HashMap oppoModels = new HashMap();
+        oppoModels.put("Oppo Find X3", 109999);
+        oppoModels.put("Oppo F27 Pro", 29999);
+        oppoModels.put("Oppo Reno 12 Pro", 42999);
+        mobileBrands.put(9, oppoModels);
+        
+        HashMap realmeModels = new HashMap();
+        realmeModels.put("Realme GT 6", 44499);
+        realmeModels.put("Realme 13 Pro+", 24999);
+        realmeModels.put("Realme P2 Pro", 22799);
+        mobileBrands.put(10, realmeModels);
+
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+            // Display the list of brands
+            System.out.println("\nAvailable Mobile Brands:");
+            System.out.println("1. Samsung\n2. Apple\n3. Xiaomi\n4. Motorola\n5. Vivo\n6. IQOO\n7. Google\n8. OnePlus\n9. Oppo\n10. Realme\n0. Exit");
+            
+            // Get user input 
+            System.out.print("Enter the brand number (1-10) to view available models and prices or 0 to Exit: ");
+            int brandKey = sc.nextInt();
+            
+            // Exit 
+            if (brandKey == 0) {
+                System.out.println("Thank you for visiting our store! Visit Again.");
+                break;
+            }
+            
+            // Display the models 
+            if (mobileBrands.containsKey(brandKey)) {
+                System.out.println("Models available for the selected brand:");
+                HashMap selectedModels = (HashMap)mobileBrands.get(brandKey);
+
+               for (Map.Entry<String, Integer> entry : ((Set<Map.Entry<String, Integer>>) selectedModels.entrySet())) {
+
+				  System.out.println("Model: " + entry.getKey() + " | Price: Rs " + entry.getValue());
+                }
+            } else {
+                System.out.println("Invalid brand number. Please enter a number between 1 and 10, or 0 to exit.");
+            }
+        }
+        sc.close();
+	}
+}
